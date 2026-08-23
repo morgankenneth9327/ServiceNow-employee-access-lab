@@ -37,11 +37,11 @@ Implement a standardized employee onboarding and access-request process that cap
 ## Personas and Stakeholders
 Personas                 -   Responsibilities 
 
-Hiring Manager           -   Initiated onboarding/access requests
-IT Support Technician    -   Fulfills hardware/equipment work
-IAM Analyst              -   Fulfills identity and access work
-Security Approver        -   Reviews privileged-access requests
-ServiceNow Administrator -   Configures and maintains the solution
+1. Hiring Manager           -   Initiated onboarding/access requests
+2. IT Support Technician    -   Fulfills hardware/equipment work
+3. IAM Analyst              -   Fulfills identity and access work
+4. Security Approver        -   Reviews privileged-access requests
+5. ServiceNow Administrator -   Configures and maintains the solution
 
 ## Success Criteria
 The initial implementation will be considered successful when:
