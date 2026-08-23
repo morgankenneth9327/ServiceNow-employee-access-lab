@@ -1,8 +1,9 @@
+# Project Terminology
 | Term | Working meaning |
-|—-|—-|
-|Project Charter | High-level document establishing the purpose. objectives, scope, stakeholders, and success conditions of a project. |
+| —-- | -—- |
+|Project Charter | High-level document establishing the purpose, objectives, scope, stakeholders, and success conditions of a project. |
 | Business Problem | The undesirable current condition that creates a reason for the project. |
-| Project Objectives | The result the project is intended to produce. |
+| Project Objective | The result the project is intended to produce. |
 | Scope | The defined boundaries of work included in a project. |
 | Out of Scope | Work deliberately excluded from the current project or release. | 
 | Scope Creep | Uncontrolled expansion of project work beyond the agreed scope. | 
