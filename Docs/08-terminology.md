@@ -1,6 +1,6 @@
 # Project Terminology
 | Term | Working meaning |
-| —-- | -—- |
+| --- | --- |
 |Project Charter | High-level document establishing the purpose, objectives, scope, stakeholders, and success conditions of a project. |
 | Business Problem | The undesirable current condition that creates a reason for the project. |
 | Project Objective | The result the project is intended to produce. |
