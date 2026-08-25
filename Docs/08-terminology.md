@@ -18,3 +18,11 @@
 | Constraint | A limitation within which the project must operate. | 
 | Validation | Checking that a configuration or solution produces the intended result. | 
 | Requirement | A condition or capability the solution must satisfy. |
+| Atomic Requirement | A requirement describing one independently understandable and testable behavior or condition. |
+| Approval Gate | A control point that prevents subsequent work from proceeding until a required approval is granted. |
+| Happy Path | The normal successful sequence through a process when expected conditions are met. |
+| Requirements Refinement | The process of making broad requirements more precise, unambiguous, and testable. |
+| Functional Requirement (FR) | A requirement defining a specific behavior or capability the system must provide. |
+| Non-Functional Requirement (NFR) | A requirement defining a quality, constraint, or operating characteristic of a solution rather than a specific business behavior. |
+| Requirements Traceability | The ability to connect a requirement to its implementation, validation, and supporting evidence. |
+| Auditability | The ability to reconstruct or verify system activity using retained records or evidence. |
