@@ -26,3 +26,9 @@
 | Non-Functional Requirement (NFR) | A requirement defining a quality, constraint, or operating characteristic of a solution rather than a specific business behavior. |
 | Requirements Traceability | The ability to connect a requirement to its implementation, validation, and supporting evidence. |
 | Auditability | The ability to reconstruct or verify system activity using retained records or evidence. |
+| Process Flow | A representation of the sequence of activities, decisions, and handoffs that make up a business process. |
+| Decision Point | A point in a process where a defined condition determines which path the process follows. |
+| Parallel Activity | Process activities that may proceed independently rather than requiring one to finish before another begins. |
+| Alternate Path | A valid, expected variation from the primary or happy path of a process. |
+| Exception Path | A path describing abnormal conditions or failures that interrupt normal process behavior. |
+| Handoff | The transfer of responsibility or work from one actor, team, or process activity to another. |
