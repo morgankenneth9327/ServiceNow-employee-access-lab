@@ -35,6 +35,49 @@ This document describes the sequence of activities, decision points, and fulfill
 
 9. The Hiring Manager is notified that the onboarding request is complete.
 
+## Process Diagram
+
+```mermaid
+flowchart TD
+
+    A[Hiring Manager submits onboarding request]
+    B{Privileged access requested?}
+    C[Hiring Manager provides business justification]
+    D[Security reviews privileged-access request]
+    E{Security approves?}
+    F[Privileged-access component may proceed]
+    G[Privileged-access component excluded from fulfillment]
+
+    H[Applicable fulfillment work begins]
+    I[IT Support fulfills requested hardware/equipment]
+    J[IAM fulfills requested identity/access]
+    K{All required fulfillment work complete?}
+    L[Complete onboarding request]
+    M[Notify Hiring Manager]
+
+    A --> B
+
+    B -- Yes --> C
+    C --> D
+    D --> E
+
+    E -- Yes --> F
+    F --> H
+
+    E -- No --> G
+    G --> H
+
+    B -- No --> H
+
+    H --> I
+    H --> J
+
+    I --> K
+    J --> K
+
+    K -- Yes --> L
+    L --> M
+
 ## Alternate and Exception Paths
 
 ### No Privileged Access Requested
@@ -49,7 +92,6 @@ If the Security Approver rejects a privileged-access request, the rejected privi
 
 Technical exception handling, including platform failures, assignment failures, and notification-delivery failures, is not defined for Version 1 of this process.
 
-## Requirement Traceability
 ## Requirement Traceability
 
 | Process Step | Related Requirement(s) | Relationship |
