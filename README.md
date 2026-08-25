@@ -10,16 +10,19 @@ The project is being developed incrementally, beginning with business analysis a
 
 ## Project Status
 
-**In Progress — Process Design**
+**In Progress — Architecture Design**
 
 Completed:
 - Project charter and scope definition
 - Functional requirements
 - Non-functional requirements
-- Initial actor and stakeholder definition
+- Actor and stakeholder definition
+- Business process modeling and process diagram
+- Alternate and exception-path definition
+- Requirement traceability
 
 In progress:
-- Business process modeling and requirement traceability
+- Architecture design and solution structure
 
 Planned:
 - ServiceNow application and catalog configuration
