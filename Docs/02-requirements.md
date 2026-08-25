@@ -20,6 +20,6 @@
 | --- | --- |
 | NFR-001 | Test data used in the solution shall be fictional and shall not contain real employee information. | 
 | NFR-002 | The solution shall record who approved or denied a privileged access request, whether the request was approved or denied, and when the decision was made. |
-| NFR-003 | The solution shall use native Service-Now functionality rather than custom scripting when native functions satisfies the requirement. |
+| NFR-003 | The solution shall use native ServiceNow functionality rather than custom scripting when native functionality satisfies the requirement. |
 
 ## Notes
