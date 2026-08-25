@@ -18,5 +18,8 @@
 
 | ID | Requirement |
 | --- | --- |
+| NFR-001 | The system shall use fictional data rather than real employee data. | 
+| NFR-002 | The System shall record who approved or denied a Privileged access request, whether the request was approved or denied, and when the decision was made.
+| NFR-003 | The system shall use native Service-Now functionalities rather than custom scripting when native functions satisy the requirement. |
 
 ## Notes
