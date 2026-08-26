@@ -13,6 +13,8 @@
 | FR-007 | The system shall route any identity/access requests to the IAM Analyst for fulfillment. | 
 | FR-008 | The system shall prevent a privileged-access request rejected by the Security Approver from proceeding to fulfillment. |
 | FR-009 | The system shall notify the Hiring Manager of the completion of their request. |
+| FR-010 | The system shall allow the Hiring Manager to view the current status of an onboarding request. |
+| FR-011 | The system shall transition the onboarding request to a completed state after all required fulfillment work is complete. |
 
 ## Non-Functional Requirements
 
