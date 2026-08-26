@@ -102,5 +102,6 @@ Technical exception handling, including platform failures, assignment failures, 
 | 3–4 | FR-005, FR-008 | Security approval gate and rejection path |
 | 5 | FR-006 | IT Support fulfillment routing |
 | 6 | FR-007 | IAM fulfillment routing |
-| 7–8 | FR-005, FR-006, FR-007 | Required fulfillment work proceeds to completion |
+| 7–8 | FR-006, FR-007, FR-011 | Required fulfillment work proceeds to request completion |
 | 9 | FR-009 | Completion notification to the Hiring Manager |
+| Cross-cutting | FR-010 | Hiring Manager can view request status throughout the request lifecycle |
