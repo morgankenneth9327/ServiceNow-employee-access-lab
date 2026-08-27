@@ -39,6 +39,40 @@ This document defines the high-level technical structure of the Employee Access 
 
 ## Data and Control Flow
 
+### Data Flow
+
+1. Request Intake captures the employee information, equipment selections, access selections, and any required privileged-access justification.
+
+2. The captured request data is provided to Request and State Management, which maintains the persistent onboarding request and its current lifecycle state.
+
+3. Process Orchestration evaluates the request data to determine which approval and fulfillment paths apply.
+
+4. When privileged access is requested, the relevant request information is provided to Approval Control for Security review. The resulting approval decision, approver identity, and decision time are retained with the solution.
+
+5. Applicable fulfillment information is provided to IT Support Fulfillment and IAM Fulfillment according to the requested equipment and access.
+
+6. Fulfillment progress and completion information is returned to the solution so that the overall request state can be maintained.
+
+7. When the onboarding request reaches completion, the request and requester information required for completion communication is provided to the Notification component.
+
+### Control Flow
+
+1. Submission of a valid onboarding request initiates process orchestration.
+
+2. Process Orchestration determines whether privileged access is included.
+
+3. If privileged access is requested, privileged fulfillment is held pending a Security approval decision.
+
+4. An approved privileged-access decision allows the applicable privileged fulfillment path to proceed.
+
+5. A rejected privileged-access decision prevents the rejected privileged-access component from proceeding while allowing unrelated valid fulfillment work to continue.
+
+6. Applicable hardware and identity/access fulfillment activities may proceed independently.
+
+7. Completion of all required fulfillment work allows the overall onboarding request to transition to a completed state.
+
+8. Completion of the overall request initiates the required completion notification to the Hiring Manager.
+
 ## ServiceNow Implementation Mapping
 
 ## Architecture Diagram
