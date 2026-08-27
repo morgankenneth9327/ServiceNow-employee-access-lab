@@ -26,6 +26,17 @@ This document defines the high-level technical structure of the Employee Access 
 
 ## Component Responsibilities
 
+| Component | Responsibilities | Related Requirement(s) |
+| --- | --- | --- |
+| Request Intake | Present the onboarding request, capture required employee information, capture equipment and access selections, and collect privileged-access justification when applicable. | FR-001, FR-002, FR-003, FR-004 |
+| Request and State Management | Maintain the onboarding request as a persistent record, expose its current lifecycle status, and maintain its progression through completion. | FR-010, FR-011 |
+| Process Orchestration | Coordinate conditional request paths, approval dependencies, fulfillment routing, and the determination that all required work is complete. | FR-005, FR-006, FR-007, FR-008, FR-011 |
+| Approval Control | Record the Security approval decision and prevent privileged-access fulfillment unless approval is granted. | FR-005, FR-008, NFR-002 |
+| IT Support Fulfillment | Represent, assign, and track applicable hardware and equipment fulfillment work. | FR-006 |
+| IAM Fulfillment | Represent, assign, and track applicable identity and access fulfillment work. | FR-007 |
+| Notification | Generate the required completion communication to the Hiring Manager. | FR-009 |
+| Identity and Assignment Model | Represent the requesters, approvers, fulfillment personnel, and groups used to establish ownership and routing throughout the solution. | Supports FR-001, FR-005, FR-006, FR-007 |
+
 ## Data and Control Flow
 
 ## ServiceNow Implementation Mapping
