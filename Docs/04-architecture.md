@@ -75,6 +75,19 @@ This document defines the high-level technical structure of the Employee Access 
 
 ## ServiceNow Implementation Mapping
 
+| Logical Component | Planned ServiceNow Implementation | Notes |
+| --- | --- | --- |
+| Request Intake | Service Catalog catalog item with catalog variables | A catalog item will provide the Hiring Manager-facing onboarding form. Variables will capture employee information, equipment selections, access selections, and privileged-access justification. |
+| Request and State Management | Requested Item record and catalog request lifecycle/stage information | The Requested Item will serve as the primary persistent record for the onboarding request and expose its progress through the request lifecycle. |
+| Process Orchestration | Workflow Studio flow using a Service Catalog trigger | The flow will evaluate request data, control approval and fulfillment paths, coordinate completion conditions, and update request progression. |
+| Approval Control | Workflow Studio Ask for Approval action and generated approval records | Security approval will control whether the privileged-access fulfillment path may proceed while retaining approval decision information. |
+| IT Support Fulfillment | Catalog Task assigned to the IT Support group | Hardware and equipment work will be represented as fulfillment tasks associated with the requested item. |
+| IAM Fulfillment | Catalog Task assigned to the IAM group | Identity and access work will be represented as fulfillment tasks associated with the requested item. |
+| Notification | Workflow Studio Send Notification action with a ServiceNow Notification record | Completion of the overall request will trigger the configured completion notification to the Hiring Manager. |
+| Identity and Assignment Model | ServiceNow users, groups, and group membership | Fictional Hiring Manager, Security, IT Support, and IAM identities/groups will provide request ownership, approval targets, and fulfillment assignment. |
+
 ## Architecture Diagram
+
+
 
 ## Design Constraints and Decisions
