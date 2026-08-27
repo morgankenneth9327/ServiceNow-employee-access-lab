@@ -88,6 +88,45 @@ This document defines the high-level technical structure of the Employee Access 
 
 ## Architecture Diagram
 
+flowchart TD
+
+    HM[Hiring Manager]
+
+    RI["Request Intake<br/>Service Catalog Item"]
+    RSM["Request and State Management<br/>Requested Item - RITM"]
+    PO["Process Orchestration<br/>Workflow Studio Flow"]
+    AC["Approval Control<br/>Ask for Approval"]
+    IT["IT Support Fulfillment<br/>Catalog Task"]
+    IAM["IAM Fulfillment<br/>Catalog Task"]
+    N["Notification<br/>Send Notification"]
+    ID["Identity and Assignment Model<br/>Users and Groups"]
+
+    HM --> RI
+    RI --> RSM
+    RSM --> PO
+
+    PO -->|Privileged access requested| AC
+    AC -->|Approved| PO
+    AC -->|Rejected - exclude privileged work| PO
+
+    PO -->|Hardware work| IT
+    PO -->|Identity and access work| IAM
+
+    IT -->|Task status and completion| RSM
+    IAM -->|Task status and completion| RSM
+
+    RSM -->|Current state and fulfillment status| PO
+    PO -->|All required work complete| RSM
+
+    RSM -->|Completed| N
+    N --> HM
+
+    ID -.-> RI
+    ID -.-> AC
+    ID -.-> IT
+    ID -.-> IAM
+
+Solid arrows represent request data, control decisions, or lifecycle updates between solution components. Dashed arrows represent supporting identity, group, and assignment relationships.
 
 
 ## Design Constraints and Decisions
