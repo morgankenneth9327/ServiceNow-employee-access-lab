@@ -88,6 +88,7 @@ This document defines the high-level technical structure of the Employee Access 
 
 ## Architecture Diagram
 
+```mermaid
 flowchart TD
 
     HM[Hiring Manager]
@@ -125,6 +126,7 @@ flowchart TD
     ID -.-> AC
     ID -.-> IT
     ID -.-> IAM
+```
 
 Solid arrows represent request data, control decisions, or lifecycle updates between solution components. Dashed arrows represent supporting identity, group, and assignment relationships.
 
