@@ -155,3 +155,24 @@ Solid arrows represent request data, control decisions, or lifecycle updates bet
 
 5. **Separate application-source-controlled artifacts from global Service Catalog configuration.**
    Scoped application artifacts that are suitable for ServiceNow source control will be versioned separately from Service Catalog configuration that exists in the global scope. The repository strategy for each artifact type will reflect the platform's deployment and source-control boundaries.
+
+## Architecture Traceability
+
+| Requirement | Architectural Home |
+| --- | --- |
+| FR-001 | Request Intake |
+| FR-002 | Request Intake |
+| FR-003 | Request Intake |
+| FR-004 | Request Intake; Process Orchestration |
+| FR-005 | Approval Control; Process Orchestration; IAM Fulfillment |
+| FR-006 | Process Orchestration; IT Support Fulfillment; Identity and Assignment Model |
+| FR-007 | Process Orchestration; IAM Fulfillment; Identity and Assignment Model |
+| FR-008 | Approval Control; Process Orchestration; IAM Fulfillment |
+| FR-009 | Notification; Process Orchestration |
+| FR-010 | Request and State Management |
+| FR-011 | Request and State Management; Process Orchestration |
+| NFR-001 | Design Constraints; Identity and Assignment Model |
+| NFR-002 | Approval Control; approval data flow |
+| NFR-003 | Architectural Goals; Design Constraints; ADR-001 |
+
+All documented functional and non-functional requirements have an identified architectural home. Implementation and testing will validate that each mapped component satisfies the associated requirement.
