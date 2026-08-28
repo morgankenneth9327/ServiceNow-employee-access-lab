@@ -130,5 +130,75 @@ flowchart TD
 
 Solid arrows represent request data, control decisions, or lifecycle updates between solution components. Dashed arrows represent supporting identity, group, and assignment relationships.
 
-
 ## Design Constraints and Decisions
+
+### Design Constraints
+
+* Version 1 will operate entirely within a ServiceNow Personal Developer Instance.
+* Production Active Directory, Microsoft Entra ID, MID Server, REST API, HR-system, and production email integrations are outside the Version 1 architecture.
+* Test users and organizational data will be fictional.
+* Native ServiceNow capabilities will be preferred over custom scripting when they satisfy the documented requirements.
+
+### Architecture Decisions
+
+1. **Use the native Service Catalog request model for Version 1.**
+   The solution will use a Service Catalog catalog item, Requested Item records, and Catalog Tasks rather than introducing custom request and fulfillment tables.
+
+2. **Use Workflow Studio for process orchestration.**
+   Native flow capabilities will coordinate conditional approval, fulfillment routing, completion evaluation, and notification.
+
+3. **Keep privileged-access approval separate from access fulfillment.**
+   Security will authorize or reject privileged access, while IAM will remain responsible for fulfillment.
+
+4. **Use ServiceNow users and groups for assignment and approval modeling.**
+   Fictional platform users and groups will represent the Hiring Manager, Security, IT Support, and IAM functions required by Version 1.
+
+5. **Separate application-source-controlled artifacts from global Service Catalog configuration.**
+   Scoped application artifacts that are suitable for ServiceNow source control will be versioned separately from Service Catalog configuration that exists in the global scope. The repository strategy for each artifact type will reflect the platform's deployment and source-control boundaries.
+
+## ADR-001 — Native Catalog Request Model for Version 1
+
+### Status
+
+Accepted
+
+### Context
+
+Version 1 of the Employee Access & Onboarding solution must support standardized request intake, privileged-access approval, hardware and access fulfillment, request-status visibility, completion tracking, and requester notification.
+
+ServiceNow already provides a native Service Catalog request model using catalog items, Requested Item records, and Catalog Tasks. The alternative would be to create custom onboarding and fulfillment tables with custom relationships and lifecycle behavior.
+
+### Decision
+
+Version 1 will use the native Service Catalog request model rather than introducing custom onboarding and fulfillment tables.
+
+### Rationale
+
+The native request model satisfies the documented Version 1 requirements without introducing additional data-model and lifecycle complexity.
+
+This approach also aligns with NFR-003, which directs the solution to prefer native ServiceNow functionality when it can satisfy the requirement.
+
+Custom tables or more specialized data structures may be introduced in later versions if implementation experience or validated business requirements demonstrate a need that the native model cannot adequately address.
+
+### Alternatives Considered
+
+* Custom onboarding request table
+* Custom IT fulfillment table
+* Custom IAM fulfillment table
+* Hybrid model using a custom parent record with native fulfillment tasks
+
+These alternatives provide greater control over the data model but would introduce additional configuration, relationships, lifecycle logic, security considerations, and maintenance overhead before a documented need has been established.
+
+### Consequences
+
+**Positive**
+
+* Faster and simpler Version 1 implementation
+* Better alignment with native ServiceNow behavior
+* Reduced custom configuration and maintenance
+* Lower risk of designing unnecessary structures before requirements are validated
+
+**Negative**
+
+* The native request model may be less specialized than a custom onboarding data model
+* Future requirements may require additional configuration or migration to more specialized structures
