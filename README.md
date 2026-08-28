@@ -10,27 +10,35 @@ The project is being developed incrementally, beginning with business analysis a
 
 ## Project Status
 
-**In Progress — Architecture Design**
+**In Progress — ServiceNow Implementation**
 
 Completed:
-- Project charter and scope definition
-- Functional requirements
-- Non-functional requirements
-- Actor and stakeholder definition
-- Business process modeling and process diagram
-- Alternate and exception-path definition
-- Requirement traceability
+
+* Project charter and scope definition
+* Functional and non-functional requirements
+* Actor and stakeholder definition
+* Business process modeling and process diagram
+* Alternate and exception-path definition
+* Requirement traceability
+* Logical solution architecture
+* Component responsibility and requirement mapping
+* Data and control flow design
+* ServiceNow implementation mapping
+* Solution architecture diagram
+* Architecture constraints and design decisions
+* Architecture Decision Record (ADR)
+* Architecture requirement traceability
 
 In progress:
-- Architecture design and solution structure
+
+* ServiceNow application and catalog configuration
 
 Planned:
-- ServiceNow application and catalog configuration
-- Approval and fulfillment workflow
-- Test users and fulfillment groups
-- Functional testing and evidence collection
-- Architecture documentation
-- Version-controlled ServiceNow configuration
+
+* Approval and fulfillment workflow
+* Test users and fulfillment groups
+* Functional testing and evidence collection
+* Version-controlled ServiceNow configuration
 
 ## V1 Scope
 
@@ -70,8 +78,10 @@ This repository is intended to demonstrate practical experience with:
 | [Solution Requirements](Docs/02-requirements.md) | Defines functional and non-functional solution requirements |
 | [Process Flow](Docs/03-process-flow.md) | Documents the onboarding process, decision points, approval paths, and fulfillment handoffs |
 | [Project Terminology](Docs/08-terminology.md) | Working glossary of project, requirements, ServiceNow, and process terminology |
+| [Solution Architecture](Docs/04-architecture.md) | Defines logical components, technical responsibilities, implementation mappings, data/control flow, and architectural decisions |
+| [Architecture Decisions](Docs/07-decisions/ADR-001-solution-design.md) | Records significant architecture decisions, rationale, alternatives, and consequences |
 
-Additional architecture, build, testing, decision, and implementation documentation will be added as the project progresses.
+Additional build, testing, and implementation documentation will be added as the project progresses.
 
 ## Environment
 
