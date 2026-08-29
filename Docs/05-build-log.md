@@ -20,6 +20,10 @@ This document records the actual configuration and implementation of the Employe
 
 ### Implementation Setup
 
+- Established the Employee Access & Onboarding scoped application for application-owned solution artifacts.
+- Established a dedicated global Update Set for Service Catalog configuration.
+- Separated scoped application artifacts from global catalog configuration in accordance with the documented architecture.
+
 ### Test Identity and Assignment Model
 
 Created the fictional users and fulfillment groups required to exercise the Version 1 workflow.
@@ -45,6 +49,34 @@ Created the fictional users and fulfillment groups required to exercise the Vers
 - No additional platform roles were assigned at this stage.
 - Group membership establishes the assignment and approval structure required by the documented architecture.
 
-* Established the Employee Access & Onboarding scoped application for application-owned solution artifacts.
-* Established a dedicated global Update Set for Service Catalog configuration.
-* Separated scoped application artifacts from global catalog configuration in accordance with the documented architecture.
+### Catalog Item and Request Variables
+
+Created the requester-facing Service Catalog structure for the Version 1 onboarding process.
+
+#### Catalog Configuration
+
+| Item | Value |
+| --- | --- |
+| Category | Employee Services |
+| Catalog Item | Employee Onboarding & Access Request |
+| Catalog | Service Catalog |
+| Status | Active |
+
+#### Request Variables
+
+| Order | Variable | Name | Type | Mandatory |
+| ---: | --- | --- | --- | --- |
+| 100 | Employee name | `employee_name` | Single Line Text | Yes |
+| 200 | Department | `department` | Single Line Text | Yes |
+| 300 | Job title | `job_title` | Single Line Text | Yes |
+| 400 | Manager name | `manager_name` | Single Line Text | Yes |
+| 500 | Start date | `start_date` | Date | Yes |
+| 600 | Laptop required? | `laptop_required` | Yes/No | Yes |
+| 700 | VPN access required? | `vpn_access_required` | Yes/No | Yes |
+| 800 | Standard application access required? | `standard_application_access_required` | Yes/No | Yes |
+| 900 | Privileged access required? | `privileged_access_required` | Yes/No | Yes |
+| 1000 | Business justification | `business_justification` | Multi Line Text | No |
+
+- Verified the catalog item using the requester-facing **Try It** view.
+- Confirmed variable order, required-field behavior, date input, and Yes/No inputs render as expected.
+- Business justification remains optional at this stage; conditional visibility and mandatory behavior will be implemented separately.
