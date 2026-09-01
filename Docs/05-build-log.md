@@ -34,7 +34,7 @@ Created the fictional users and fulfillment groups required to exercise the Vers
 | --- | --- |
 | EAO - IT Support | Hardware and equipment fulfillment |
 | EAO - IAM | Identity and access fulfillment |
-| EAO - Security Approvers | Privileged-access approval |
+| EAO - Security Approver | Privileged-access approval |
 
 #### Test Users
 
