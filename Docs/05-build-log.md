@@ -41,7 +41,7 @@ Created the fictional users and fulfillment groups required to exercise the Vers
 | User ID | Identity | Group Membership |
 | --- | --- | --- |
 | eao.hiring.manager | Test Hiring Manager | None |
-| eao.security.approver | Test Security Approver | EAO - Security Approvers |
+| eao.security.approver | Test Security Approver | EAO - Security Approver |
 | eao.it.support | Test IT Support | EAO - IT Support |
 | eao.iam.analyst | Test IAM Analyst | EAO - IAM |
 
