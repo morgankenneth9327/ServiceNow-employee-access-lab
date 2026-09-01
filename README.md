@@ -28,17 +28,25 @@ Completed:
 * Architecture constraints and design decisions
 * Architecture Decision Record (ADR)
 * Architecture requirement traceability
+* Scoped ServiceNow application creation and source control
+* Test users, fulfillment groups, and group memberships
+* Employee Services catalog category
+* Employee Onboarding & Access Request catalog item
+* Ten request variables
+* Requester-facing catalog rendering validation
+* PDI performance troubleshooting, backup, migration, and restoration
+* Post-migration performance validation
 
 In progress:
 
-* ServiceNow application and catalog configuration
+* Approval and fulfillment workflow
 
 Planned:
 
-* Approval and fulfillment workflow
-* Test users and fulfillment groups
-* Functional testing and evidence collection
-* Version-controlled ServiceNow configuration
+* Conditional privileged-access behavior
+* Functional workflow testing and evidence collection
+* Build Agent-assisted implementation with human review
+* Additional version-controlled ServiceNow configuration
 
 ## V1 Scope
 
@@ -68,6 +76,9 @@ This repository is intended to demonstrate practical experience with:
 - ITSM-oriented workflow design
 - Technical documentation
 - Git and GitHub version control
+- ServiceNow source control
+- Platform troubleshooting and diagnostic analysis
+- PDI backup, recovery, and migration
 - Testing and evidence-based validation
 
 ## Documentation
@@ -77,15 +88,18 @@ This repository is intended to demonstrate practical experience with:
 | [Project Charter](Docs/01-project-charter.md) | Defines the business problem, objective, scope, stakeholders, assumptions, and success criteria |
 | [Solution Requirements](Docs/02-requirements.md) | Defines functional and non-functional solution requirements |
 | [Process Flow](Docs/03-process-flow.md) | Documents the onboarding process, decision points, approval paths, and fulfillment handoffs |
-| [Project Terminology](Docs/08-terminology.md) | Working glossary of project, requirements, ServiceNow, and process terminology |
 | [Solution Architecture](Docs/04-architecture.md) | Defines logical components, technical responsibilities, implementation mappings, data/control flow, and architectural decisions |
+| [Implementation Build Log](Docs/05-build-log.md) | Records the actual ServiceNow configuration, implementation milestones, and migration/recovery work |
+| [Testing and Validation](Docs/06-testing.md) | Records functional, restore, and environment validation results |
 | [Architecture Decisions](Docs/07-decisions/ADR-001-solution-design.md) | Records significant architecture decisions, rationale, alternatives, and consequences |
-
-Additional build, testing, and implementation documentation will be added as the project progresses.
+| [Project Terminology](Docs/08-terminology.md) | Working glossary of project, requirements, ServiceNow, and process terminology |
+| [PDI Performance Troubleshooting and Recovery](Docs/09-troubleshooting.md) | Documents the performance incident, diagnostic process, root-cause assessment, migration, recovery, and reusable troubleshooting runbook |
 
 ## Environment
 
-The solution is being designed for implementation in a **ServiceNow Personal Developer Instance (PDI)** using ServiceNow-native functionality where practical.
+The solution is being implemented in a **ServiceNow Personal Developer Instance (PDI)** using ServiceNow-native functionality where practical.
+
+The original implementation PDI developed severe infrastructure-level performance degradation and was replaced after diagnostic testing, backup, reset validation, and recovery planning. The project is currently hosted in replacement PDI `dev200255` on the Australia release.
 
 Custom scripting will be introduced only where native platform functionality does not reasonably satisfy the documented requirement.
 

@@ -80,3 +80,48 @@ Created the requester-facing Service Catalog structure for the Version 1 onboard
 - Verified the catalog item using the requester-facing **Try It** view.
 - Confirmed variable order, required-field behavior, date input, and Yes/No inputs render as expected.
 - Business justification remains optional at this stage; conditional visibility and mandatory behavior will be implemented separately.
+
+
+### PDI Performance Incident, Recovery, and Migration
+
+During implementation, the original PDI (`dev421826`) developed severe and persistent server-side performance degradation. Transaction Log and `stats.do` evidence showed multi-second user-initiated response times and extremely elevated Linux load averages while database, scheduler, and semaphore snapshots did not show corresponding saturation.
+
+Troubleshooting included:
+
+- Transaction Log review
+- `stats.do` baseline capture
+- `cache.do` cache flush
+- Servlet-memory comparison
+- Semaphore, database-pool, and scheduler review
+- Pre-reset backup through ServiceNow source control, update-set export, and XML record exports
+- Reset/wipe validation
+- Replacement-PDI validation
+
+Resetting the original PDI did not resolve the issue because it returned on the same ServiceNow node. The project was therefore migrated to a newly provisioned Australia PDI (`dev200255`) on a different host.
+
+The replacement PDI used the same Australia Patch 3 build family but immediately demonstrated normal performance. This supported the conclusion that the original problem was host/shared-infrastructure contention rather than the Employee Access & Onboarding application or Australia Patch 3 itself.
+
+#### Restore Actions
+
+- Imported the scoped Employee Access & Onboarding application from the dedicated ServiceNow source-control repository.
+- Established working source-control branch `sn_instances/dev200255`.
+- Restored test users, groups, and group memberships from XML.
+- Restored the Employee Services category and Employee Onboarding & Access Request catalog item.
+- Restored all 10 catalog variables.
+- Verified the catalog item/category relationship.
+- Verified requester-facing rendering using **Try It**.
+
+#### Post-Restore Baseline
+
+| Metric | Result |
+| --- | ---: |
+| Database latency | 1 ms |
+| User-initiated response, 1 minute | 217 ms |
+| User-initiated response, 5 minutes | 165 ms |
+| User-initiated response, 15 minutes | 124 ms |
+| Default response, 5 minutes | 222 ms |
+| Database connections busy | 0 |
+| Database connections available | 13 |
+| Scheduler queue length | 0 |
+
+Detailed incident analysis and the reusable troubleshooting runbook are maintained in [PDI Performance Troubleshooting and Recovery](09-troubleshooting.md).
