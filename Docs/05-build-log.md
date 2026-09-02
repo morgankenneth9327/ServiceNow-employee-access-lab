@@ -81,7 +81,6 @@ Created the requester-facing Service Catalog structure for the Version 1 onboard
 - Confirmed variable order, required-field behavior, date input, and Yes/No inputs render as expected.
 - Business justification remains optional at this stage; conditional visibility and mandatory behavior will be implemented separately.
 
-
 ### PDI Performance Incident, Recovery, and Migration
 
 During implementation, the original PDI (`dev421826`) developed severe and persistent server-side performance degradation. Transaction Log and `stats.do` evidence showed multi-second user-initiated response times and extremely elevated Linux load averages while database, scheduler, and semaphore snapshots did not show corresponding saturation.
@@ -125,3 +124,36 @@ The replacement PDI used the same Australia Patch 3 build family but immediately
 | Scheduler queue length | 0 |
 
 Detailed incident analysis and the reusable troubleshooting runbook are maintained in [PDI Performance Troubleshooting and Recovery](09-troubleshooting.md).
+
+### Conditional Privileged-Access Behavior
+
+Implemented native Catalog UI Policy behavior for the privileged-access justification requirement.
+
+#### Catalog UI Policy
+
+| Item | Value |
+| --- | --- |
+| Catalog Item | Employee Onboarding & Access Request |
+| Policy | Require justification for privileged access |
+| Condition | `privileged_access_required` is not Yes |
+| On load | Yes |
+| Reverse if false | Yes |
+| Custom scripting | None |
+
+#### UI Policy Action
+
+| Variable | False/No State | Yes State |
+| --- | --- | --- |
+| `business_justification` | Hidden, optional, value cleared | Visible and mandatory |
+
+The policy ensures that business justification is required only when privileged access is requested.
+
+Build Agent was used as a configuration reviewer after the policy was implemented manually. The review identified a stale-data edge case in which a previously entered justification could remain populated after privileged access was changed back to No. The policy was adjusted so that the justification value is cleared when privileged access is not required.
+
+Validation confirmed:
+- Business justification is hidden and optional when privileged access is No.
+- Business justification becomes visible and mandatory when privileged access is Yes.
+- An empty justification prevents submission while privileged access is Yes.
+- Changing privileged access from Yes to No clears the previously entered justification.
+- Returning privileged access to Yes displays an empty mandatory justification field.
+- No custom client script was required.
