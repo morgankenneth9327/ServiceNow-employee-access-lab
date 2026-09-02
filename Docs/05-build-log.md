@@ -157,3 +157,30 @@ Validation confirmed:
 - Changing privileged access from Yes to No clears the previously entered justification.
 - Returning privileged access to Yes displays an empty mandatory justification field.
 - No custom client script was required.
+
+### Workflow Studio Flow Skeleton
+
+Created the initial orchestration flow for the Employee Onboarding & Access Request.
+
+| Item | Value |
+| --- | --- |
+| Flow | Employee Onboarding & Access Fulfillment |
+| Application | Employee Access & Onboarding |
+| Status | Draft / inactive |
+| Trigger | Service Catalog |
+| Initial action | Get Catalog Variables |
+| Submitted Request | Requested Item Record from Service Catalog trigger |
+| Template Catalog Item | Employee Onboarding & Access Request |
+
+The Get Catalog Variables action retrieves all ten request variables for use by later approval, fulfillment, completion, and notification logic.
+
+Build Agent was used to generate and compile a Fluent SDK representation of the proposed action. The generated implementation compiled with zero errors and zero warnings but was intentionally not installed because the available Build Agent installation path could not guarantee preservation of the flow's draft/inactive state.
+
+The action was therefore configured manually in Workflow Studio and validated using a draft-flow test.
+
+Validation confirmed:
+- The draft flow accepted a Requested Item as test input.
+- Get Catalog Variables completed successfully.
+- All ten catalog variables were exposed as flow outputs.
+- Runtime values matched the submitted test request.
+- The flow remains inactive and is not yet associated with the catalog item.
