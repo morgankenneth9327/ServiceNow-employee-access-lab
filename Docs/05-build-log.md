@@ -184,3 +184,46 @@ Validation confirmed:
 - All ten catalog variables were exposed as flow outputs.
 - Runtime values matched the submitted test request.
 - The flow remains inactive and is not yet associated with the catalog item.
+
+### Privileged-Access Security Approval Gate
+
+Implemented the Version 1 Security approval gate for privileged-access requests in the Employee Onboarding & Access Fulfillment flow.
+
+#### Approval Configuration
+
+| Item | Value |
+| --- | --- |
+| Approval condition | `privileged_access_required` = Yes |
+| Record approved | Requested Item from Service Catalog trigger |
+| Approval group | EAO - Security Approver |
+| Approval rule | Approve when anyone approves |
+| Rejection rule | Reject when anyone rejects |
+| Approved-path condition | Approval State = Approved |
+| Custom scripting | None |
+
+The Security approval logic executes only when privileged access is requested. An approved decision allows the privileged-access branch to continue. A rejected decision prevents the approved-only branch from executing without terminating the overall onboarding flow.
+
+The `approver_user` role was assigned to the Test Security Approver after implementation demonstrated that the role was required for the test approver to access and act on records through My Approvals.
+
+#### Implementation Troubleshooting
+
+The initial approval configuration used a combined Approves-or-Rejects rule. During testing, Ask for Approval returned an Approval State of `skipped`. Execution logs identified the approval rule as invalid.
+
+The combined rule was replaced with separate approval and rejection rule sets:
+
+- Approve when anyone approves from EAO - Security Approver.
+- Reject when anyone rejects from EAO - Security Approver.
+
+After correction, Ask for Approval entered a waiting state and generated a valid approval record.
+
+#### Validation
+
+Validated three workflow paths:
+
+| Scenario | Result |
+| --- | --- |
+| Privileged access not requested | Security approval bypassed; flow completed |
+| Privileged access requested and approved | Approval completed; approved branch evaluated true; flow completed |
+| Privileged access requested and rejected | Approval completed with rejected state; approved branch evaluated false; flow completed |
+
+Approval records retained the approver identity, approval decision, and activity timestamp, providing the audit information required by NFR-002.
