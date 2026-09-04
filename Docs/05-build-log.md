@@ -227,3 +227,74 @@ Validated three workflow paths:
 | Privileged access requested and rejected | Approval completed with rejected state; approved branch evaluated false; flow completed |
 
 Approval records retained the approver identity, approval decision, and activity timestamp, providing the audit information required by NFR-002.
+
+### Parallel Fulfillment Tasks
+
+Implemented independent hardware, standard-access, and privileged-access fulfillment paths using native Workflow Studio parallel flow logic and Catalog Tasks.
+
+#### Fulfillment Structure
+
+| Path | Condition | Fulfillment | Assignment Group |
+| --- | --- | --- | --- |
+| Hardware | `laptop_required` = Yes | Prepare employee hardware | EAO - IT Support |
+| Standard IAM | `vpn_access_required` = Yes OR `standard_application_access_required` = Yes | Provision standard employee access | EAO - IAM |
+| Privileged IAM | `privileged_access_required` = Yes AND Security approval = Approved | Provision approved privileged access | EAO - IAM |
+
+The three fulfillment paths execute within a **Do the following in Parallel** block so that unrelated hardware and standard-access work can proceed while privileged-access approval is pending.
+
+Each Catalog Task:
+- Is associated with the triggering Requested Item.
+- Uses `Wait = true` so its branch remains active until fulfillment is completed.
+- Exposes relevant request variables directly to the fulfiller.
+- Uses native ServiceNow functionality without custom scripting.
+
+#### Catalog Task Context
+
+Hardware task exposes:
+- `employee_name`
+- `department`
+- `job_title`
+- `start_date`
+- `laptop_required`
+
+Standard IAM task exposes:
+- `employee_name`
+- `department`
+- `job_title`
+- `start_date`
+- `vpn_access_required`
+- `standard_application_access_required`
+
+Privileged IAM task exposes:
+- `employee_name`
+- `department`
+- `job_title`
+- `start_date`
+- `privileged_access_required`
+- `business_justification`
+
+#### Implementation Troubleshooting
+
+During rejection-path validation, newly submitted requests also received two unrelated Catalog Tasks: `Assess or Scope Task` and `Provide requested service`.
+
+The catalog item was found to have `Execution Plan = DEFAULT`. The default execution plan was cleared so the catalog item would not generate unrelated fulfillment work while the custom Workflow Studio flow remained under development.
+
+Fresh validation after removing the default execution plan produced only the Catalog Tasks defined by the Employee Onboarding & Access Fulfillment flow.
+
+#### Validation
+
+Approved privileged-access scenario:
+- Hardware and standard IAM tasks were created immediately while Security approval remained pending.
+- Approval allowed the privileged-access branch to proceed.
+- A privileged IAM Catalog Task was created only after approval.
+- The parallel block remained waiting until all applicable fulfillment tasks were closed.
+- The overall flow completed after all required fulfillment work finished.
+
+Rejected privileged-access scenario:
+- Hardware and standard IAM tasks were created and completed normally.
+- Security rejection caused the approved-only condition to evaluate false.
+- No privileged IAM Catalog Task was created.
+- Unrelated fulfillment continued despite the rejection.
+- The parallel block and overall flow completed after the remaining required tasks were closed.
+
+This behavior satisfies the fulfillment-routing and privileged-access rejection requirements represented by FR-006, FR-007, and FR-008.
