@@ -94,6 +94,7 @@ This repository is intended to demonstrate practical experience with:
 | [Architecture Decisions](Docs/07-decisions/ADR-001-solution-design.md) | Records significant architecture decisions, rationale, alternatives, and consequences |
 | [Project Terminology](Docs/08-terminology.md) | Working glossary of project, requirements, ServiceNow, and process terminology |
 | [PDI Performance Troubleshooting and Recovery](Docs/09-troubleshooting.md) | Documents the performance incident, diagnostic process, root-cause assessment, migration, recovery, and reusable troubleshooting runbook |
+| [Test Identity and Assignment Model](Docs/10-test-identity-model.md) | Defines the fictional users, groups, memberships, roles, and assignment model required to reproduce the test environment |
 
 ## Environment
 
@@ -118,3 +119,23 @@ This is a portfolio and learning environment rather than a production deployment
 - Organization and employee data are fictional.
 - No production credentials or sensitive information are stored in this repository.
 - Documentation reflects the current state of the project and will evolve alongside implementation.
+
+## Configuration Packaging
+
+The implementation is versioned across two repositories and an exported ServiceNow Update Set.
+
+- **Portfolio and documentation repository:** `ServiceNow-employee-access-lab`
+  - Project documentation and implementation evidence
+  - Test identity and assignment model
+  - Exported Global catalog configuration Update Set
+- **Scoped application repository:** `ServiceNow-employee-access-app`
+  - ServiceNow-generated scoped application source
+  - Employee onboarding and access fulfillment flow
+  - Completion notification and scoped application metadata
+- **Global configuration package:** `artifacts/update-sets/EAO-Catalog-Configuration-v0.1.xml`
+  - Catalog category and catalog item
+  - Catalog variables
+  - Catalog UI Policy and action
+  - Catalog and category associations
+
+Fictional test users, groups, memberships, and required roles are documented rather than stored as raw `sys_user` XML exports so that the environment can be reproduced without publishing unnecessary authentication or instance-specific user data.
