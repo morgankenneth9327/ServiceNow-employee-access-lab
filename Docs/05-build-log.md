@@ -298,3 +298,60 @@ Rejected privileged-access scenario:
 - The parallel block and overall flow completed after the remaining required tasks were closed.
 
 This behavior satisfies the fulfillment-routing and privileged-access rejection requirements represented by FR-006, FR-007, and FR-008.
+
+### Request Completion and Notification
+
+Implemented final Requested Item completion handling and requester notification after all required fulfillment work is complete.
+
+#### Completion Configuration
+
+| Item | Value |
+| --- | --- |
+| Record updated | Triggering Requested Item |
+| Table | `sc_req_item` |
+| Final State | Closed Complete (`state = 3`) |
+| Execution point | After all parallel fulfillment paths complete |
+
+The completion update executes only after all applicable Catalog Tasks and approval-dependent fulfillment paths have finished. Closing the final required Catalog Task allowed the parallel block to complete, after which the Requested Item transitioned to its completed lifecycle state.
+
+#### Completion Notification
+
+| Item | Value |
+| --- | --- |
+| Notification | EAO - Onboarding Request Completed |
+| Table | Requested Item [`sc_req_item`] |
+| Send method | Triggered through Workflow Studio |
+| Recipient | Request → Requested for |
+| Flow action | Send Notification |
+
+A fictional email address was assigned to the Test Hiring Manager for notification validation.
+
+#### Fulfiller Access Validation
+
+The Test IT Support user was given the `itil` role after fulfillment testing demonstrated that Catalog Tasks are worked as fulfiller tasks rather than approval records.
+
+The hardware Catalog Task appeared in work assigned to the user's groups. Test IT Support claimed the task, became the individual assignee, and completed it as Closed Complete.
+
+This validated the intended fulfillment model:
+
+- Assignment group identifies the responsible team.
+- A fulfiller can claim work from the team queue.
+- Individual assignment identifies the person performing the task.
+- Closing the required Catalog Task allows the waiting flow branch to continue.
+
+#### Validation
+
+Validation confirmed:
+
+- The flow remained waiting while a required Catalog Task was open.
+- Closing the final required Catalog Task allowed the parallel fulfillment block to complete.
+- The Requested Item completion action executed only after fulfillment completion.
+- The Requested Item transitioned to the completed lifecycle state.
+- The completion notification action executed successfully.
+- ServiceNow generated an outbound `sys_email` record.
+- The generated email targeted the test Requested Item.
+- The recipient resolved to `eao.hiring.manager@example.com`.
+- The subject contained the correct Requested Item number.
+- The completion message was generated successfully.
+
+This implementation satisfies FR-009 and FR-011 and provides the completed request state used to support FR-010.
