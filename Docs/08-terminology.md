@@ -47,3 +47,25 @@
 | Architecture Decision Record (ADR) | A document recording an important architectural decision, its context, rationale, alternatives, and consequences. |
 | Separation of Responsibilities | A design principle in which distinct responsibilities, such as approval and fulfillment, are assigned to separate solution components or actors. |
 | Cross-Cutting Requirement | A requirement or constraint that applies across multiple components or stages of a solution rather than to one isolated function. |
+| Personal Developer Instance (PDI) | A ServiceNow developer instance used for learning, development, and testing outside a production environment. |
+| Scoped Application | A ServiceNow application whose configuration and application files are contained within a defined application scope. |
+| Application Scope | The namespace and boundary that identifies which application owns a ServiceNow artifact and controls access between applications. |
+| Service Catalog | The ServiceNow capability used to present requestable products and services to users. |
+| Catalog Item | A requestable Service Catalog offering that defines the form and fulfillment process for a particular service or request. |
+| Catalog Variable | A field on a Catalog Item used to collect information from the requester. |
+| Catalog UI Policy | A ServiceNow configuration that dynamically controls Catalog Variable behavior such as visibility or mandatory state without requiring custom client scripting. |
+| Workflow Studio | The ServiceNow development interface used to create and manage flows, subflows, actions, and process automation. |
+| Flow | A ServiceNow automation composed of a trigger followed by actions and flow logic. |
+| Flow Trigger | The event or condition that starts execution of a flow. |
+| Data Pill | A selectable representation of data produced by a trigger or prior flow action that can be used as input elsewhere in a flow. |
+| Ask for Approval | A Flow Designer / Workflow Studio action that creates and waits for approval decisions against a specified record. |
+| Approval State | The recorded status of an approval process, such as requested, approved, or rejected. |
+| Assignment Group | The team or group responsible for performing work on a ServiceNow task or record. |
+| Assigned To | The individual user currently responsible for performing the work on a ServiceNow task or record. |
+| Update Set | A ServiceNow mechanism for collecting configuration changes so they can be moved between instances. |
+| Customer Update | An individual configuration-change record captured within an Update Set. |
+| Source Control | Version-control integration used to store and track ServiceNow scoped-application source in an external Git repository. |
+| Execution Plan | A legacy/catalog fulfillment mechanism that can generate fulfillment tasks for a Catalog Item independently of a Flow or Workflow. |
+| Flow Reporting | ServiceNow execution-detail collection that records runtime information for flow troubleshooting and validation. |
+| Flow Context | A runtime execution instance of a ServiceNow flow, including its current state and execution history. |
+| Outbound Email (`sys_email`) | A ServiceNow email record representing a message generated or queued by the platform. |
