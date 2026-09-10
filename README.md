@@ -6,7 +6,7 @@ This project is a ServiceNow portfolio lab focused on designing and implementing
 
 The solution is intended to replace informal email-based onboarding requests with a standardized process for collecting employee information, requesting equipment and system access, applying additional controls to privileged-access requests, routing fulfillment work, and tracking the request through completion.
 
-The project is being developed incrementally, beginning with business analysis and requirements documentation before platform configuration and implementation.
+The project was developed incrementally, beginning with business analysis and requirements documentation before platform configuration and implementation.
 
 ## Project Status
 
@@ -92,7 +92,7 @@ This repository is intended to demonstrate practical experience with:
 
 ## Environment
 
-The solution is being implemented in a **ServiceNow Personal Developer Instance (PDI)** using ServiceNow-native functionality where practical.
+The solution was implemented in a **ServiceNow Personal Developer Instance (PDI)** using ServiceNow-native functionality where practical.
 
 The original implementation PDI developed severe infrastructure-level performance degradation and was replaced after diagnostic testing, backup, reset validation, and recovery planning. The project is currently hosted in replacement PDI `dev200255` on the Australia release.
 
@@ -116,7 +116,7 @@ This is a portfolio and learning environment rather than a production deployment
 
 ## Configuration Packaging
 
-The implementation is versioned across two repositories and an exported ServiceNow Update Set.
+The implementation is versioned across two repositories and two exported ServiceNow Update Set.
 
 - **Portfolio and documentation repository:** `ServiceNow-employee-access-lab`
   - Project documentation and implementation evidence
