@@ -10,43 +10,37 @@ The project is being developed incrementally, beginning with business analysis a
 
 ## Project Status
 
-**In Progress — ServiceNow Implementation**
+**Version 1 Complete — Implemented and Validated**
 
 Completed:
 
-* Project charter and scope definition
-* Functional and non-functional requirements
-* Actor and stakeholder definition
-* Business process modeling and process diagram
-* Alternate and exception-path definition
-* Requirement traceability
-* Logical solution architecture
-* Component responsibility and requirement mapping
-* Data and control flow design
-* ServiceNow implementation mapping
-* Solution architecture diagram
-* Architecture constraints and design decisions
-* Architecture Decision Record (ADR)
-* Architecture requirement traceability
-* Scoped ServiceNow application creation and source control
-* Test users, fulfillment groups, and group memberships
-* Employee Services catalog category
-* Employee Onboarding & Access Request catalog item
-* Ten request variables
-* Requester-facing catalog rendering validation
-* PDI performance troubleshooting, backup, migration, and restoration
-* Post-migration performance validation
+- Project charter, requirements, and stakeholder definition
+- Business process modeling and exception-path design
+- Solution architecture and Architecture Decision Record
+- Scoped ServiceNow application and source control
+- Employee Services catalog category
+- Employee Onboarding & Access Request catalog item
+- Ten request variables
+- Conditional privileged-access justification behavior
+- Security approval gate for privileged access
+- Parallel IT Support and IAM fulfillment
+- Approved privileged-access fulfillment
+- Requested Item lifecycle completion
+- Requester completion notification
+- Test-user, group, role, and assignment model
+- PDI performance troubleshooting, migration, and recovery
+- Clean Global configuration packaging
+- Active-flow catalog association packaging
+- Live non-privileged workflow validation
+- Live privileged-approved workflow validation
+- Live privileged-rejected workflow validation
+- Hardware and IAM fulfiller validation
+- Completion-notification validation
+- Scoped application merge to `main`
 
-In progress:
+### Known Future Refinement
 
-* Approval and fulfillment workflow
-
-Planned:
-
-* Conditional privileged-access behavior
-* Functional workflow testing and evidence collection
-* Build Agent-assisted implementation with human review
-* Additional version-controlled ServiceNow configuration
+The non-privileged workflow path leaves the Requested Item `Approval` field at `Requested` even though no Security approval is required. This does not affect fulfillment or lifecycle completion, but normalization of that field is a possible future state-model improvement.
 
 ## V1 Scope
 
@@ -129,13 +123,18 @@ The implementation is versioned across two repositories and an exported ServiceN
   - Test identity and assignment model
   - Exported Global catalog configuration Update Set
 - **Scoped application repository:** `ServiceNow-employee-access-app`
-  - ServiceNow-generated scoped application source
+  - Completed Version 1 scoped application merged into `main`
+  - ServiceNow-generated application source
   - Employee onboarding and access fulfillment flow
   - Completion notification and scoped application metadata
-- **Global configuration package:** `artifacts/update-sets/EAO-Catalog-Configuration-v0.1.xml`
-  - Catalog category and catalog item
-  - Catalog variables
-  - Catalog UI Policy and action
-  - Catalog and category associations
+  - `sn_instances/dev200255` retained as the PDI working branch
+- **Global configuration packages:**
+  - `artifacts/update-sets/EAO-Catalog-Configuration-v0.1.xml`
+    - Catalog category and catalog item
+    - Catalog variables
+    - Catalog UI Policy and action
+    - Catalog and category associations
+  - `artifacts/update-sets/EAO-Flow-Association-v0.1.xml`
+    - Final catalog-item-to-flow association
 
 Fictional test users, groups, memberships, and required roles are documented rather than stored as raw `sys_user` XML exports so that the environment can be reproduced without publishing unnecessary authentication or instance-specific user data.
