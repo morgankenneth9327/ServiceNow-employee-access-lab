@@ -13,7 +13,7 @@ This document records the actual configuration and implementation of the Employe
 | Solution Version                | v0.1                                                                                 |
 | Application                     | Employee Access & Onboarding                                                         |
 | Application Scope               | Scoped application                                                                   |
-| Global Configuration Update Set | EAO - Catalog Configuration - v0.1                                                   |
+| Global Configuration Update Set | EAO - Catalog Configuration - v0.1 Final                                             |
 | Implementation Approach         | Native ServiceNow functionality preferred where it satisfies documented requirements |
 
 ## Build Entries
@@ -365,3 +365,52 @@ Implementation configuration was packaged for reproducibility before final workf
 - The completed Update Set was exported and stored at `artifacts/update-sets/EAO-Catalog-Configuration-v0.1.xml`.
 - Fictional test identities, groups, memberships, and required platform roles were documented in `Docs/10-test-identity-model.md` rather than publishing raw user-record XML.
 - The scoped application remains on the active instance development branch pending final activation and smoke testing.
+
+### Activation and Integrated Smoke Testing
+
+After implementation and configuration packaging were complete, the Employee Onboarding & Access Fulfillment flow was activated and associated with the Employee Onboarding & Access Request catalog item.
+
+The catalog-item-to-flow association was captured separately in the Global Update Set `EAO - Flow Association - v0.1` so that the previously exported baseline catalog configuration package remained unchanged.
+
+#### Live Validation
+
+Three end-to-end Service Catalog submissions were used to validate the active flow:
+
+| Requested Item | Scenario | Result |
+| --- | --- | --- |
+| `RITM0010012` | Non-privileged onboarding | Passed |
+| `RITM0010013` | Privileged access approved | Passed |
+| `RITM0010014` | Privileged access rejected | Passed |
+
+Validation confirmed:
+
+- Normal Service Catalog submission automatically triggers the active flow.
+- Hardware and standard IAM fulfillment can proceed in parallel.
+- Privileged fulfillment is not created before Security approval.
+- Security approval creates the privileged IAM fulfillment task.
+- Security rejection prevents privileged fulfillment without blocking unrelated onboarding work.
+- Test IT Support can claim and complete hardware Catalog Tasks using the `itil` role.
+- Test IAM Analyst can claim and complete IAM Catalog Tasks using the `itil` role.
+- Test Security Approver can act on approval records using the `approver_user` role.
+- Requested Items automatically transition to Closed Complete after all required fulfillment work finishes.
+- Completed Requested Items become inactive.
+- Completion notifications are generated for the Test Hiring Manager.
+
+The non-privileged Requested Item retained `Approval = Requested` after completion even though the flow did not require Security approval. This did not affect fulfillment or lifecycle completion and was documented as a possible future state-model refinement.
+
+#### Final Packaging and Source Control
+
+The final Global configuration artifacts are stored as:
+
+- `artifacts/update-sets/EAO-Catalog-Configuration-v0.1.xml`
+- `artifacts/update-sets/EAO-Flow-Association-v0.1.xml`
+
+After successful integrated validation, the active scoped application state was committed to `sn_instances/dev200255` with commit:
+
+`feat: activate onboarding fulfillment flow`
+
+The completed scoped application implementation was then merged into the repository `main` branch through pull request #1:
+
+`feat: complete employee onboarding workflow v0.1`
+
+The ServiceNow instance branch remains available as the PDI working source-control branch.
