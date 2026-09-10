@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2026-09-10 13:04:29">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>EAO - Flow Association - v0.1 </name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>e708d8f883df8750c74d52e0deaad34b</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2026-09-10 13:04:29</sys_created_on>
+<sys_id>6cf2a0348353c750c74d52e0deaad318</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2026-09-10 13:04:29</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sc_cat_item_8b0f63302fcf0b10021314807fa4e360</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sc_cat_item"&gt;&lt;sc_cat_item action="INSERT_OR_UPDATE"&gt;&lt;access_type&gt;restricted&lt;/access_type&gt;&lt;active&gt;true&lt;/active&gt;&lt;availability&gt;on_desktop&lt;/availability&gt;&lt;billable&gt;false&lt;/billable&gt;&lt;category display_value="Employee Services"&gt;01be7fec2f07c710021314807fa4e3ce&lt;/category&gt;&lt;cc_render_type&gt;system&lt;/cc_render_type&gt;&lt;checked_out/&gt;&lt;cost&gt;0&lt;/cost&gt;&lt;custom_cart/&gt;&lt;delivery_plan/&gt;&lt;delivery_plan_script/&gt;&lt;delivery_time&gt;1970-01-03 00:00:00&lt;/delivery_time&gt;&lt;description&gt;&lt;![CDATA[&lt;p&gt;Submit an onboarding request for a new employee, including required employee information, equipment, system access, and privileged-access needs.&lt;/p&gt;]]&gt;&lt;/description&gt;&lt;display_price_property&gt;non_zero&lt;/display_price_property&gt;&lt;entitlement_script/&gt;&lt;flow_designer_flow display_value="Employee Onboarding &amp;amp; Access Fulfillment"&gt;77ba648283c74310c74d52e0deaad36c&lt;/flow_designer_flow&gt;&lt;fulfillment_automation_level&gt;unspecified&lt;/fulfillment_automation_level&gt;&lt;group/&gt;&lt;hide_sp&gt;false&lt;/hide_sp&gt;&lt;icon/&gt;&lt;ignore_price&gt;true&lt;/ignore_price&gt;&lt;image/&gt;&lt;location/&gt;&lt;make_item_non_conversational&gt;false&lt;/make_item_non_conversational&gt;&lt;mandatory_attachment&gt;false&lt;/mandatory_attachment&gt;&lt;meta/&gt;&lt;mobile_hide_price&gt;false&lt;/mobile_hide_price&gt;&lt;mobile_picture/&gt;&lt;mobile_picture_type&gt;use_desktop_picture&lt;/mobile_picture_type&gt;&lt;model/&gt;&lt;name&gt;Employee Onboarding &amp;amp; Access Request&lt;/name&gt;&lt;no_attachment_v2&gt;false&lt;/no_attachment_v2&gt;&lt;no_cart&gt;false&lt;/no_cart&gt;&lt;no_cart_v2&gt;false&lt;/no_cart_v2&gt;&lt;no_delivery_time_v2&gt;false&lt;/no_delivery_time_v2&gt;&lt;no_order&gt;false&lt;/no_order&gt;&lt;no_order_now&gt;false&lt;/no_order_now&gt;&lt;no_proceed_checkout&gt;false&lt;/no_proceed_checkout&gt;&lt;no_quantity&gt;false&lt;/no_quantity&gt;&lt;no_quantity_v2&gt;false&lt;/no_quantity_v2&gt;&lt;no_save_as_draft&gt;false&lt;/no_save_as_draft&gt;&lt;no_search&gt;false&lt;/no_search&gt;&lt;no_wishlist_v2&gt;false&lt;/no_wishlist_v2&gt;&lt;omit_price&gt;false&lt;/omit_price&gt;&lt;order&gt;0&lt;/order&gt;&lt;ordered_item_link/&gt;&lt;owner display_value="System Administrator"&gt;6816f79cc0a8016401c5a33be04be441&lt;/owner&gt;&lt;picture/&gt;&lt;preview&gt;JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;amp;sysparm_id=8b0f63302fcf0b10021314807fa4e360&amp;amp;sysparm_preview=true", "summary");&lt;/preview&gt;&lt;price&gt;0&lt;/price&gt;&lt;published_ref/&gt;&lt;recurring_frequency/&gt;&lt;recurring_price&gt;0&lt;/recurring_price&gt;&lt;request_method/&gt;&lt;roles/&gt;&lt;sc_catalogs&gt;e0d08b13c3330100c8b837659bba8fb4&lt;/sc_catalogs&gt;&lt;sc_ic_item_staging/&gt;&lt;sc_ic_version/&gt;&lt;sc_template/&gt;&lt;secondary_owners/&gt;&lt;short_description&gt;Request employee onboarding equipment and system access.&lt;/short_description&gt;&lt;show_variable_help_on_load&gt;false&lt;/show_variable_help_on_load&gt;&lt;start_closed&gt;false&lt;/start_closed&gt;&lt;state/&gt;&lt;sys_class_name&gt;sc_cat_item&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-29 17:42:22&lt;/sys_created_on&gt;&lt;sys_id&gt;8b0f63302fcf0b10021314807fa4e360&lt;/sys_id&gt;&lt;sys_mod_count&gt;49&lt;/sys_mod_count&gt;&lt;sys_name&gt;Employee Onboarding &amp;amp; Access Request&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sc_cat_item_8b0f63302fcf0b10021314807fa4e360&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-09-10 12:21:46&lt;/sys_updated_on&gt;&lt;taxonomy_topic/&gt;&lt;template/&gt;&lt;template_manager_roles/&gt;&lt;type&gt;item&lt;/type&gt;&lt;use_sc_layout&gt;true&lt;/use_sc_layout&gt;&lt;vendor/&gt;&lt;version&gt;50&lt;/version&gt;&lt;visible_bundle&gt;true&lt;/visible_bundle&gt;&lt;visible_guide&gt;true&lt;/visible_guide&gt;&lt;visible_standalone&gt;true&lt;/visible_standalone&gt;&lt;workflow/&gt;&lt;/sc_cat_item&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=8b0f63302fcf0b10021314807fa4e360"/&gt;&lt;fx_price action="delete_multiple" query="id=8b0f63302fcf0b10021314807fa4e360"/&gt;&lt;fx_price action="INSERT_OR_UPDATE"&gt;&lt;amount&gt;0&lt;/amount&gt;&lt;currency display_value="USD"&gt;USD&lt;/currency&gt;&lt;field&gt;price&lt;/field&gt;&lt;id&gt;8b0f63302fcf0b10021314807fa4e360&lt;/id&gt;&lt;parent/&gt;&lt;reference_amount&gt;0&lt;/reference_amount&gt;&lt;reference_currency display_value="USD"&gt;USD&lt;/reference_currency&gt;&lt;sys_created_by&gt;system&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-09-01 13:26:30&lt;/sys_created_on&gt;&lt;sys_id&gt;97a152b583070310c74d52e0deaad363&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;system&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-09-01 13:26:30&lt;/sys_updated_on&gt;&lt;table&gt;sc_cat_item&lt;/table&gt;&lt;type&gt;calculated&lt;/type&gt;&lt;/fx_price&gt;&lt;fx_price action="INSERT_OR_UPDATE"&gt;&lt;amount&gt;0&lt;/amount&gt;&lt;currency display_value="USD"&gt;USD&lt;/currency&gt;&lt;field&gt;recurring_price&lt;/field&gt;&lt;id&gt;8b0f63302fcf0b10021314807fa4e360&lt;/id&gt;&lt;parent/&gt;&lt;reference_amount&gt;0&lt;/reference_amount&gt;&lt;reference_currency display_value="USD"&gt;USD&lt;/reference_currency&gt;&lt;sys_created_by&gt;system&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-09-01 13:26:30&lt;/sys_created_on&gt;&lt;sys_id&gt;d3a152b583070310c74d52e0deaad371&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;system&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-09-01 13:26:30&lt;/sys_updated_on&gt;&lt;table&gt;sc_cat_item&lt;/table&gt;&lt;type&gt;calculated&lt;/type&gt;&lt;/fx_price&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1263168110</payload_hash>
+<remote_update_set display_value="EAO - Flow Association - v0.1 ">6cf2a0348353c750c74d52e0deaad318</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2026-09-10 13:04:29</sys_created_on>
+<sys_id>a0f2a0348353c750c74d52e0deaad319</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1a08b4456b40000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2026-09-10 13:04:29</sys_updated_on>
+<table/>
+<target_name>Employee Onboarding &amp; Access Request</target_name>
+<type>Catalog Item</type>
+<update_domain>global</update_domain>
+<update_guid>072954bcdcdf8750b3ad743b208a1731</update_guid>
+<update_guid_history>072954bcdcdf8750b3ad743b208a1731:1263168110,6a1267982b5b0750ff744e7effefebc7:-1979228887,35512f18115b075090bdeee331ec55c8:-409537459,9341eb18d75b075085247c62bb7f0a23:-1975585002,5341ab18b05b0750aa2fae615f30a8e7:408003541,591fdfd0935b0750bde5b904c196efec:1348779236,2f0f9fd0c55b075032c543f0acec46c4:-562599517,7aded7d00a5b0750945bfded74065aa3:1820989026,c4de57d03b5b075085afee517bc6b2fc:-90389727,673ed390035b07503e260648dc553345:-2001768480,f93e5390655b0750e6e8a2f0395399e7:-1102428086,842e9f50635b0750895c7ed1becdbb5d:1281160457,611e5f50e45b0750066d112bb523dc06:-630218296,ce0e9b505a5b07506333237cf3c4ef81:1753370247,ec0e1b50515b07504cd7d397e34ee06a:-158008506,a0fd9750e85b07507bca16020794ab59:-2069387259,aeed57500a5b0750832eaeb09950ba36:314201284,d3dd9350af5b0750575c79d927c4a1ba:-1597177469,65dd9350905b0750311d1ad418fd361b:786411074,a9cddf10595b07503739e0430d34d03c:-1124967679,33bd9f10235b0750f04ac41992e1452f:-225627285,ffaddb10565b07507fe6d20a6bcbd273:-2137006038,46ad9b10225b07504d0393b83196b165:246582505,bd8d5710305b07500a5a814114b89aab:-1664796248,737d1710165b0750404b5c053a59f22f:718792295,736d53107b5b0750126c1d3964f6bbb1:-1192586458,e86d1310695b0750f6c340654ca8092e:1191002085,e74d1fdcdc1b0750312d858c38381856:-720376668,894d9bdc4d1b075062cc7685cd66e9b3:1663211875,5f9cd39c161b07502f5aee420c6a8f75:-248166878,f59c939c7d1b07507a39a68daaafc37f:-2119776100,5c9836ea60c787109eb92987a8af2798:-1260205237,3d39ec8ef9874310a6efbe7d954d49ae:1873482249,6419a88efe874310ac5edf8e703d0bbb:-37896504,fb26a80a18874310e2fdea955f158942:-1949275257,93b5e8c69f8743109b028c8fe0f88981:434313286,c9a1de759a0703101c6cc76c85f4af7f:-682275328</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
