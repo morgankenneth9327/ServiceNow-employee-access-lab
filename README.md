@@ -116,12 +116,12 @@ This is a portfolio and learning environment rather than a production deployment
 
 ## Configuration Packaging
 
-The implementation is versioned across two repositories and two exported ServiceNow Update Set.
+The implementation is versioned across two repositories and two exported ServiceNow Update Sets.
 
 - **Portfolio and documentation repository:** `ServiceNow-employee-access-lab`
   - Project documentation and implementation evidence
   - Test identity and assignment model
-  - Exported Global catalog configuration Update Set
+  - Exported Global catalog configuration Update Sets
 - **Scoped application repository:** `ServiceNow-employee-access-app`
   - Completed Version 1 scoped application merged into `main`
   - ServiceNow-generated application source
