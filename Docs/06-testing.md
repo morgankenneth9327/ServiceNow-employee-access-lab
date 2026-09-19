@@ -27,6 +27,28 @@ Validated that the catalog item renders with all 10 expected variables in the in
 
 The catalog item was also confirmed to be active and associated with the **Employee Services** category in the **Service Catalog**.
 
+## Catalog UI Policy Validation
+
+### Test: Privileged-access business justification behavior
+
+**Component:** Employee Onboarding & Access Request  
+**Result:** Passed
+
+Validated the Catalog UI Policy governing the `business_justification` variable.
+
+Observed behavior:
+
+- When `privileged_access_required` is No, Business justification is hidden and is not mandatory.
+- Changing `privileged_access_required` to Yes makes Business justification visible and mandatory.
+- Submission is prevented when privileged access is requested without a business justification.
+- Entering a business justification satisfies the mandatory-field requirement.
+- Changing privileged access from Yes back to No hides Business justification and clears the previously entered value.
+- Changing privileged access back to Yes displays an empty, mandatory Business justification field.
+
+This confirms that privileged-access requests require supporting justification while non-privileged requests do not retain unnecessary justification data.
+
+**Requirements validated:** FR-004
+
 ## PDI Migration Validation
 
 Following migration from the degraded `dev421826` PDI to replacement PDI `dev200255`, the restored environment was checked before development resumed.
@@ -206,6 +228,50 @@ Outbound email records confirmed successful generation of the custom completion 
 
 The generated messages were recorded as `send-ready` outbound email records in the PDI.
 
+## Final Packaging and Source-Control Validation
+
+### Global catalog configuration
+
+**Result:** Passed
+
+The final Global catalog configuration was reviewed, scanned, completed, and exported.
+
+The primary Update Set contained 18 Customer Updates representing:
+
+- 1 Catalog Item
+- 1 Category
+- 10 Variables
+- 1 Catalog UI Policy
+- 1 Catalog UI Policy Action
+- 2 Catalog Item / Category relationship records
+- 2 Catalog Item / Catalog relationship records
+
+Relationship records containing both `INSERT_OR_UPDATE` and `DELETE` actions were verified to reference different record sys_ids, confirming that the package preserves intentional relationship replacement rather than conflicting actions against the same record.
+
+The Update Set scan completed without failures or actionable findings. One older customer-update version was skipped because a newer update to the related record existed.
+
+A follow-up Update Set corrected the requester-facing labels:
+
+- `Standard application access required?`
+- `Privileged access required?`
+
+The correction package contained three Customer Updates and also passed the Update Set scan before completion and XML export.
+
+### Scoped application source control
+
+**Result:** Passed
+
+The completed Version 1 scoped application is merged into the `main` branch of the dedicated ServiceNow source-control repository.
+
+Final Studio verification confirmed:
+
+- The application remains linked to the source-control repository.
+- The PDI working branch is `sn_instances/dev200255`.
+- Studio reported no uncommitted application changes after the Version 1 merge.
+- No additional commit, pull, or merge was required during final closeout.
+
+This confirms that the scoped application repository and the active PDI application state were synchronized at Version 1 closeout.
+
 ## Integrated Validation Summary
 
 | Scenario | Expected Outcome | Result |
@@ -218,4 +284,4 @@ The generated messages were recorded as `send-ready` outbound email records in t
 | Request completion | RITM closes automatically after all required fulfillment completes | Passed |
 | Completion notification | Requester receives generated completion notification | Passed |
 
-The live validation confirms the Version 1 workflow behaves as designed across its primary, approved privileged-access, and rejected privileged-access paths.
+The completed validation confirms that Version 1 behaves as designed across requester input, conditional catalog behavior, non-privileged fulfillment, approved privileged-access fulfillment, rejected privileged-access handling, fulfiller access, request completion, notification generation, configuration packaging, and source-control closeout.
