@@ -116,7 +116,7 @@ This is a portfolio and learning environment rather than a production deployment
 
 ## Configuration Packaging
 
-The implementation is versioned across two repositories and two exported ServiceNow Update Sets.
+The implementation is versioned across two repositories and three exported ServiceNow Update Sets.
 
 - **Portfolio and documentation repository:** `ServiceNow-employee-access-lab`
   - Project documentation and implementation evidence
@@ -130,11 +130,14 @@ The implementation is versioned across two repositories and two exported Service
   - `sn_instances/dev200255` retained as the PDI working branch
 - **Global configuration packages:**
   - `artifacts/update-sets/EAO-Catalog-Configuration-v0.1.xml`
-    - Catalog category and catalog item
+    - Baseline catalog category and catalog item configuration
     - Catalog variables
     - Catalog UI Policy and action
     - Catalog and category associations
   - `artifacts/update-sets/EAO-Flow-Association-v0.1.xml`
     - Final catalog-item-to-flow association
+  - `artifacts/update-sets/EAO-Catalog-Label-Corrections-v0.1.xml`
+    - Export of ServiceNow Update Set `EAO - Catalog Configuration - v0.1.1`
+    - Corrected requester-facing labels for standard application access and privileged access variables
 
 Fictional test users, groups, memberships, and required roles are documented rather than stored as raw `sys_user` XML exports so that the environment can be reproduced without publishing unnecessary authentication or instance-specific user data.
