@@ -2,7 +2,7 @@
 
 ## Project Status
 
-Planning
+Complete - Version 1
 
 ## Business Problem
 A company currently handles employee onboarding and access requests through email and informal communication. This results in inconsistent information collection, unclear fulfillment ownership, inconsistent approval of privileged access, and limited visibility into request status.
