@@ -403,7 +403,12 @@ The non-privileged Requested Item retained `Approval = Requested` after completi
 The final Global configuration artifacts are stored as:
 
 - `artifacts/update-sets/EAO-Catalog-Configuration-v0.1.xml`
+  - Baseline catalog configuration
 - `artifacts/update-sets/EAO-Flow-Association-v0.1.xml`
+  - Final catalog-item-to-flow association
+- `artifacts/update-sets/EAO-Catalog-Label-Corrections-v0.1.xml`
+  - Export of follow-up Update Set `EAO - Catalog Configuration - v0.1.1`
+  - Corrected requester-facing labels for the standard application access and privileged access variables
 
 After successful integrated validation, the active scoped application state was committed to `sn_instances/dev200255` with commit:
 
