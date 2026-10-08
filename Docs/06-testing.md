@@ -250,12 +250,16 @@ Relationship records containing both `INSERT_OR_UPDATE` and `DELETE` actions wer
 
 The Update Set scan completed without failures or actionable findings. One older customer-update version was skipped because a newer update to the related record existed.
 
-A follow-up Update Set corrected the requester-facing labels:
+A follow-up Update Set, `EAO - Catalog Configuration - v0.1.1`, corrected the requester-facing labels:
 
 - `Standard application access required?`
 - `Privileged access required?`
 
-The correction package contained three Customer Updates and also passed the Update Set scan before completion and XML export.
+The correction package contained three Customer Updates and passed the Update Set scan before completion and XML export.
+
+The exported Update Set is stored in the repository as:
+
+`artifacts/update-sets/EAO-Catalog-Label-Corrections-v0.1.xml`
 
 ### Scoped application source control
 
