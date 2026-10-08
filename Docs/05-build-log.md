@@ -364,7 +364,7 @@ Implementation configuration was packaged for reproducibility before final workf
 - Global catalog configuration was recaptured in a clean Update Set named `EAO - Catalog Configuration - v0.1 Final`.
 - The completed Update Set was exported and stored at `artifacts/update-sets/EAO-Catalog-Configuration-v0.1.xml`.
 - Fictional test identities, groups, memberships, and required platform roles were documented in `Docs/10-test-identity-model.md` rather than publishing raw user-record XML.
-- The scoped application remains on the active instance development branch pending final activation and smoke testing.
+- The scoped application remains on the active instance development branch.
 
 ### Activation and Integrated Smoke Testing
 
